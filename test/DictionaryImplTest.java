@@ -14,21 +14,15 @@ class DictionaryImplTest {
     @BeforeEach
     public void initDict(){
         dict = new DictionaryImpl();
+        dict.defineWord("Lleida","Ciutat...");
     }
 
     @Test
     void definedWordLengthCorrect() throws NotDefinedException {
-        dict.defineWord("A","Lletra");
         assertEquals(1,dict.hash.size());
     }
     @Test
-    void definedWordLength0() throws NotDefinedException {
-        assertEquals(0,dict.hash.size());
-    }
-
-    @Test
     void givenKeyGivesDef() throws NotDefinedException{
-        dict.defineWord("Lleida","Ciutat...");
         assertEquals("Ciutat...",dict.getDefinitions("Lleida"));
     }
     @Test
